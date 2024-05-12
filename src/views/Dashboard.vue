@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="background">
         <Header/>
 
             <div class="container izquierda">
@@ -83,7 +83,15 @@ export default {
 </script>
 
 <style  scoped>
-    .izquierda{
-        text-align: left;
-    }
+    .background {
+
+  background-image: url('~@/assets/fondo.png');
+  width: 100%;
+  height: 100vh;
+  
+}
+
+.izquierda {
+  text-align: left;
+}
 </style>
