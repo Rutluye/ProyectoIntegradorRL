@@ -3,7 +3,7 @@
         <div>
             <footer>
 
-               Wilfredo aleman 
+               Rut Ludeña
 
              </footer>
 

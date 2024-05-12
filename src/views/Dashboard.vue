@@ -4,7 +4,7 @@
 
             <div class="container izquierda">
 
-                <button class="btn btn-primary" v-on:click="nuevo()" >Nuevo paciente</button>
+                <button class="btn btn-primary" v-on:click="nuevo()" >Nuevo cliente</button>
                 <br><br>
 
 
@@ -39,6 +39,14 @@
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import axios from 'axios';
+
+window.watsonAssistantChatOptions = {
+    integrationID: "b75552de-f4d5-4f06-998d-3d6eec533fff", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "c0e43394-b5dc-47e7-a6d3-40953d7e19eb", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+};
+
 export default {
     name:"Dashboard",
     data(){
@@ -64,9 +72,16 @@ export default {
         axios.get(direccion).then( data =>{
             this.Listapacientes = data.data;
         });
+
+        setTimeout(function(){
+            const t=document.createElement('script');
+            t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+            document.head.appendChild(t);
+        });
     }
 }
 </script>
+
 <style  scoped>
     .izquierda{
         text-align: left;
